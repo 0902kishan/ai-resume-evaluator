@@ -16,7 +16,7 @@ An LLM-powered recruiter screening pipeline that reads PDF/DOCX resumes, extract
 
 - 📄 **Multi-Format Ingestion:** Seamlessly parses text from both `.pdf` (via `pypdf`) and `.docx` (via `python-docx`) files.
 - 🧩 **Two-Stage Structured Pipeline:** Separates resume information extraction from candidate evaluation to ensure clean, grounded evaluations.
-- 🛡️ **Guaranteed JSON Schema Outputs:** Leverages Pydantic v2 and Groq's structured output modes (`json_object` and `json_schema`) for reliable, hallucination-free outputs.
+- 🛡️ **Structured Output Schemas:** Leverages Pydantic v2 and Groq's structured output modes (json_object and json_schema) to constrain model responses to predictable, strongly-typed schemas.
 - 📊 **Objective Rubric Scoring:** Evaluates candidates across 4 key dimensions out of 100 points.
 - ⚡ **Ultra-Fast Inference:** Powered by Groq Cloud inference using `openai/gpt-oss-20b` at `temperature=0`.
 - 🏆 **Batch Candidate Ranking:** Iterates through batches of resumes and flags top-scoring and lower-scoring candidates for recruiter review.
@@ -138,27 +138,17 @@ Here is the real terminal execution output running on the sample resumes:
 ```text
 $ uv run python resume_evaluator.py
 Processing alex_chen.docx...
-<class 'groq.types.chat.chat_completion.ChatCompletion'>
-
-TOP 2
 Processing david_kim.docx...
-<class 'groq.types.chat.chat_completion.ChatCompletion'>
-
-TOP 2
 Processing priya_rao.pdf...
-<class 'groq.types.chat.chat_completion.ChatCompletion'>
-
-TOP 2
 Processing sarah_connor.docx...
-<class 'groq.types.chat.chat_completion.ChatCompletion'>
 
 TOP 2
-Alex Chen - 48
-David Kim - 13
+Sarah Connor - 82
+Priya Rao - 81
 
 LOWEST 2
-Priya Rao - 81
-Sarah Connor - 78
+Alex Chen - 48
+David Kim - 10
 ```
 
 ---
@@ -172,6 +162,7 @@ ai-resume-evaluator/
 ├── assets/
 │   └── terminal_output.txt    # Captured raw terminal execution output
 ├── job_description.txt        # Target job role description (TechNova Analytics ML Engineer)
+├── LICENSE                    # MIT License
 ├── pyproject.toml             # Project dependencies and metadata
 ├── README.md                  # Comprehensive documentation
 ├── resume_evaluator.py        # Core extraction and evaluation script
@@ -187,7 +178,7 @@ ai-resume-evaluator/
 
 ## 💡 What I Learned
 
-- **Structured Outputs vs Prompt Begging:** Defining strict JSON schemas via Pydantic and passing them directly to Groq's API eliminates JSON parsing failures and schema inconsistencies.
+- **Structured Outputs vs Prompt Begging:** Defining JSON schemas via Pydantic and passing them directly to Groq's API significantly reduces format drift and malformed JSON responses compared to free-form prompt engineering.
 - **Two-Stage LLM Architecture:** Splitting information extraction from scoring ensures the evaluation prompt is focused, grounded, and significantly faster.
 - **Multi-Format Text Extraction:** Handling both modern `.docx` XML structures and `.pdf` streams reliably within a unified router function.
 - **Fast Reproducibility with uv:** Using `uv` for lightning-fast dependency resolution and virtual environment isolation.
@@ -199,3 +190,4 @@ ai-resume-evaluator/
 - [ ] **Interactive Web UI:** Build a clean [Streamlit](https://streamlit.io/) interface for drag-and-drop resume uploading, real-time rubric customization, and visual candidate comparisons.
 - [ ] **Automated Candidate Feedback:** Generate automated, personalized feedback emails for rejected and shortlisted candidates based on model suggestions.
 - [ ] **Batch Export:** Export evaluation matrices to CSV / Notion / ATS webhooks.
+

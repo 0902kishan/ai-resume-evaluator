@@ -76,7 +76,6 @@ if value is not present, return null or empty list. Do not include any extra tex
     response = client.chat.completions.create(
         model=model, messages=messages, temperature=0,
         response_format={"type": "json_object"},  )
-    print(type(response))
     import json
     data = json.loads(response.choices[0].message.content)
     return ParsedResume(**data)
@@ -133,11 +132,14 @@ for file in resume_folder.iterdir():
         "strengths": result.strengths,
         "weaknesses": result.weaknesses,
     })
-    print("\nTOP 2")
-for c in all_results[:2]:
+
+sorted_results = sorted(all_results, key=lambda x: x["score"], reverse=True)
+
+print("\nTOP 2")
+for c in sorted_results[:2]:
     print(c["name"], "-", c["score"])
 
 print("\nLOWEST 2")
-for c in all_results[-2:]:
+for c in sorted_results[-2:]:
     print(c["name"], "-", c["score"])
 
