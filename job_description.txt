@@ -1,0 +1,39 @@
+Machine Learning Engineer
+TechNova Analytics — Bengaluru, India (Hybrid)
+
+About the Role
+TechNova Analytics is looking for a Machine Learning Engineer to join our Applied AI team.
+You will design, train, and deploy deep learning models that power our recommendation and
+forecasting products, working closely with data engineers and product managers to ship
+models from research to production.
+
+Responsibilities
+- Design and implement deep learning models (CNNs, RNNs, Transformers) using PyTorch or TensorFlow
+- Build and maintain data pipelines for training and evaluation at scale
+- Optimize model training and inference performance (mixed precision, distributed training)
+- Deploy models to production using REST APIs, Docker, and cloud infrastructure (AWS/GCP)
+- Collaborate with cross-functional teams to translate business problems into ML solutions
+- Write clean, well-tested, production-grade Python code
+- Track experiments and maintain reproducible ML workflows (MLflow, Weights & Biases)
+- Mentor junior engineers and contribute to code reviews
+
+Required Qualifications
+- Bachelor's or Master's degree in Computer Science, Data Science, or a related field
+- 1-3 years of experience building and deploying machine learning models
+- Strong proficiency in Python and one deep learning framework (PyTorch preferred)
+- Solid understanding of neural network fundamentals, optimization, and regularization
+- Experience with SQL and data manipulation libraries (pandas, NumPy)
+- Familiarity with version control (Git) and collaborative software development
+
+Preferred Qualifications
+- Experience with NLP or computer vision projects
+- Experience with cloud platforms (AWS, GCP, or Azure)
+- Familiarity with Docker, Kubernetes, or CI/CD pipelines
+- Experience with big data tools (Spark, Hadoop) is a plus
+- Contributions to open-source ML projects or published research
+
+What We Offer
+- Competitive salary and performance bonuses
+- Flexible hybrid work policy
+- Learning budget for conferences and certifications
+- Health insurance and wellness benefits

@@ -1,0 +1,28 @@
+﻿# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.class
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Real candidate resumes & local evaluation runs
+resumes/
+resume.pdf
+*.pdf
+!sample_resumes/*.pdf
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
